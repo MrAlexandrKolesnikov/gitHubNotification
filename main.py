@@ -1,12 +1,9 @@
 import os
+from notification.notification import Notification as nf
 
-def notify(title, subtitle, message):
-    t = '-title {!r}'.format(title)
-    s = '-subtitle {!r}'.format(subtitle)
-    m = '-message {!r}'.format(message)
-    os.system('terminal-notifier {}'.format(' '.join([m, t, s])))
 
 if __name__ == '__main__':
-    notify(title='A Real Notification',
+    notification = nf()
+    notification.rise(title='A Real Notification',
            subtitle='with python',
            message='Hello, this is me, notifying you!')
