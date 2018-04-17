@@ -3,7 +3,7 @@ from git.git import Git
 import threading
 import time
 
-number_of_commit = 0
+number_of_commit = 1
 branch = "master"
 
 
