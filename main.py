@@ -9,8 +9,9 @@ branch = "master"
 def worker():
     number_of_commit = Git.number_of_commit(branch)
     while True:
-        if number_of_commit != Git.number_of_commit(branch):
-            number_of_commit = Git.number_of_commit(branch)
+        new_number_of_commit = Git.number_of_commit(branch)
+        if number_of_commit != new_number_of_commit:
+            number_of_commit = new_number_of_commit
             notification = nf()
             notification.rise(title='New commit',
                           subtitle=Git.get_last_commit_author(branch),
