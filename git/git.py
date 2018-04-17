@@ -8,4 +8,12 @@ class Git:
 
     @staticmethod
     def get_last_commit_author(branch):
-        print(os.popen("git log " + branch + " --pretty=format:'%an'").read())
+        return os.popen("git log HEAD^.." + branch + " --pretty=format:'%an'").read()
+
+    @staticmethod
+    def get_last_commit_data(branch):
+        return os.popen("git log HEAD^.." + branch + " --pretty=format:'%ad'").read()
+
+    @staticmethod
+    def get_last_commit_message(branch):
+        return os.popen("git log HEAD^.." + branch + " --pretty=format:'%s'").read()
